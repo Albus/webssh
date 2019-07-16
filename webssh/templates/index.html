@@ -89,5 +89,10 @@
     <script src="static/js/xterm.min.js"></script>
     <script src="static/js/fullscreen.min.js"></script>
     <script src="static/js/main.js"></script>
+    <script>
+      $(window).on('beforeunload', function(e) {
+        return 'Are you sure you want to close this terminal tab?';
+      });
+    </script>
   </body>
 </html>

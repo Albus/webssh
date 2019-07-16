@@ -1,5 +1,9 @@
 FROM python:3.7-slim
-ADD . /code
 WORKDIR /code
+COPY requirements.txt .
 RUN pip install -r requirements.txt
-CMD ["python", "run.py"]
+COPY . .
+USER nobody
+ENV PORT=8888
+EXPOSE 8888
+CMD exec python run.py --fbidhttp=false --port=$PORT
